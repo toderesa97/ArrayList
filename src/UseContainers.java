@@ -1,18 +1,23 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class UseContainers {
 
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>();
-        list.add(4);
-        list.add(7);
-        list.add(-4);
-        list.add(1);
-        list.add(0);
-        list.sort((i1,i2)->i1-i2);
+        Lista<String> expected = new ArrayLista<>();
+        expected.add("Hey");
+        expected.add("makey");
+        expected.add("How");
+        expected.add("are");
+        expected.add("you?");
 
-        for(Integer i:list) System.out.println(i+" , ");
+        Lista<String> ls = expected.filter(string->string.contains("y"));
+
+        for (int i = 0; i < ls.size(); i++) {
+            System.out.print(ls.get(i)+",");
+        }
+
     }
 
 }

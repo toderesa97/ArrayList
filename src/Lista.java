@@ -1,4 +1,5 @@
 import java.util.Comparator;
+import java.util.function.Predicate;
 
 /**
  * Created by tdrs on 6/12/16.
@@ -40,5 +41,9 @@ public interface Lista<E> {
     Object[] toArray();
 
     String toString(int k);
+
+    void concat(Lista c);
+
+    Lista filter(Predicate<E> predicate);
 
 }

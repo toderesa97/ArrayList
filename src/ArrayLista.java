@@ -1,8 +1,7 @@
 import java.util.*;
+import java.util.function.Predicate;
 
-/**
- * Created by tdrs on 6/12/16.
- */
+
 public class ArrayLista<E> implements Lista<E>{
     private  Object[] array;
     private Comparator<E> comparator = null;
@@ -53,6 +52,14 @@ public class ArrayLista<E> implements Lista<E>{
 
     @Override
     public boolean addAll(Lista c) {
+        if(c instanceof ArrayLista){
+            ArrayLista<E> lista = (ArrayLista)c;
+            this.array = new Object[0];
+            for (int i = 0; i < lista.size(); i++) {
+                this.add(lista.get(i));
+            }
+            return true;
+        }
         return false;
     }
 
@@ -217,6 +224,24 @@ public class ArrayLista<E> implements Lista<E>{
             }
         }
         return string.substring(0, string.length()-1)+"]";
+    }
+
+    @Override
+    public void concat(Lista c) {
+        ArrayLista lista = (ArrayLista)c;
+        for (int i = 0; i < lista.size(); i++) {
+            this.add(lista.get(i));
+        }
+    }
+
+    @Override
+    public ArrayLista<E> filter(Predicate<E> predicate){
+        Lista<E> lista = new ArrayLista<E>();
+
+        for (int i = 0; i < array.length; i++) {
+            if(predicate.test((E)array[i])) lista.add((E)array[i]);
+        }
+        return (ArrayLista<E>) lista;
     }
 }
 

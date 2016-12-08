@@ -219,7 +219,80 @@ public class ArrayListaShould {
         list.add(-4);
 
         assertEquals(ls, list);
-
-
     }
+
+    @Test
+    public void add_an_existing_list_to_another (){
+        sLTest.add("Hey");
+        sLTest.add("makey");
+        sLTest.add("How");
+        sLTest.add("are");
+        sLTest.add("you?");
+
+        sLExpected.addAll(sLTest);
+
+        Lista<String> expected = new ArrayLista<>();
+        expected.add("Hey");
+        expected.add("makey");
+        expected.add("How");
+        expected.add("are");
+        expected.add("you?");
+
+        assertEquals(expected, sLExpected);
+    }
+
+    @Test
+    public void add_an_existing_list_to_another_with_a_comparator_criteria (){
+
+        sLTest.add("VASCO");
+        sLTest.add("ZARA");
+        sLTest.add("BELEN");
+        sLTest.add("AITOR");
+        sLTest.add("ABEL");
+
+        Lista<String> ls = new ArrayLista<>(String::compareTo);
+        ls.addAll(sLTest);
+
+        sLExpected.add("ABEL");
+        sLExpected.add("AITOR");
+        sLExpected.add("BELEN");
+        sLExpected.add("VASCO");
+        sLExpected.add("ZARA");
+
+        assertEquals(sLExpected,ls);
+    }
+
+    @Test
+    public void concat_a_list_to_another (){
+        sLTest.add("Hello");
+        sLExpected.add("Bye");
+
+        sLExpected.concat(sLTest);
+
+        Lista<String> expected = new ArrayLista<>();
+        expected.add("Bye");
+        expected.add("Hello");
+
+        assertEquals(expected,sLExpected );
+    }
+
+    @Test
+    public void retrieve_a_list_given_a_predicate (){
+        Lista<String> expected = new ArrayLista<>();
+        expected.add("Hey");
+        expected.add("makey");
+        expected.add("How");
+        expected.add("are");
+        expected.add("you?");
+
+        Lista<String> ls = expected.filter(string->string.contains("y"));
+
+        sLExpected.add("Hey");
+        sLExpected.add("makey");
+        sLExpected.add("you?");
+
+        assertEquals(sLExpected, ls);
+    }
+
+
 }
