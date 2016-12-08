@@ -186,9 +186,9 @@ public class ArrayListaShould {
 
         sLExpected.add("C++");
         sLExpected.add("e+54");
+        sLExpected.add("Cdsv");
         sLExpected.add("Cdsv++");
         sLExpected.add("Ahello");
-        sLExpected.add("Cdsv");
 
         assertEquals(sLExpected,ls);
     }

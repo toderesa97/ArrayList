@@ -135,7 +135,7 @@ public class ArrayLista<E> implements Lista<E>{
         while (!AllSorted){
             AllSorted = true;
             for (int i = 0; i < array.length - 1; i++) {
-                if(c.compare(array[i], array[i+1]) > 0){
+                if(c.compare((E)array[i],(E)array[i+1]) > 0){
                     Object aux = array[i];
                     array[i] = array[i+1];
                     array[i+1] = aux;
@@ -175,7 +175,7 @@ public class ArrayLista<E> implements Lista<E>{
         ArrayLista arrL = ((ArrayLista)obj);
         if(arrL.array.length != array.length) return false;
         for (int i = 0; i < array.length ; i++) {
-            if(!Objects.equals(arrL.array[i], array[i])){
+            if(!Objects.equals((E)arrL.array[i],(E) array[i])){
                 return false;
             }
         }
