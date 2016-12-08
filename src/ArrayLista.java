@@ -54,7 +54,7 @@ public class ArrayLista<E> implements Lista<E>{
     public boolean addAll(Lista c) {
         if(c instanceof ArrayLista){
             ArrayLista<E> lista = (ArrayLista)c;
-            this.array = new Object[0];
+            this.clear();
             for (int i = 0; i < lista.size(); i++) {
                 this.add(lista.get(i));
             }
