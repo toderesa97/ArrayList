@@ -206,4 +206,20 @@ public class ArrayListaShould {
         sLExpected.add("THOMAS");
         assertEquals(sLExpected, ls);
     }
+
+    @Test
+    public void sort_3 (){
+        Lista<Integer> list = new ArrayLista<>((i1,i2)->i1-i2);
+        Lista<Integer> ls = new ArrayLista<>();
+        ls.add(-4);
+        ls.add(4);
+        ls.add(7);
+        list.add(4);
+        list.add(7);
+        list.add(-4);
+
+        assertEquals(ls, list);
+
+
+    }
 }

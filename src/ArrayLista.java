@@ -31,6 +31,9 @@ public class ArrayLista<E> implements Lista<E>{
     public boolean add(Object o) {
         this.array = Arrays.copyOf(array, array.length+1);
         array[array.length-1] = o;
+        if(comparator != null) {
+            this.sort(comparator);
+        }
         return true;
     }
 
@@ -41,7 +44,12 @@ public class ArrayLista<E> implements Lista<E>{
         }
         array = Arrays.copyOf(array, array.length+index);
         array[index] = o;
-        if(comparator != null) this.sort(comparator);
+
+        if(comparator != null) {
+
+            this.sort(comparator);
+        }
+
     }
 
     @Override
