@@ -46,7 +46,6 @@ public class ArrayLista<E> implements Lista<E>{
         array[index] = o;
 
         if(comparator != null) {
-
             this.sort(comparator);
         }
 
